@@ -151,5 +151,18 @@ const { title, author, pages, publicationDate, genres, hasMovieAdaptation } =
   getBook(2);
 console.log(title, author, genres);
 
+// 19 剩余Rest/打散Spread操作符
 const [primaryGenre, secondaryGenre, ...restGenres] = genres;
 console.log(primaryGenre, secondaryGenre, restGenres);
+
+const newGenres = ["sci-fi", ...genres, "speculative fiction"];
+console.log(newGenres);
+
+const newBook = {
+  ...getBook(2),
+  // 添加新属性
+  moviePublicationDate: "1974-12-20",
+  // 覆盖原有属性
+  pages: 300,
+};
+console.log(newBook);
