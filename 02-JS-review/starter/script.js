@@ -151,6 +151,12 @@ const { title, author, pages, publicationDate, genres, hasMovieAdaptation } =
   getBook(2);
 console.log(title, author, genres);
 
+// 20 模板字符串
+const summary = `${title} a ${pages} book written by ${author} and on ${publicationDate.split("-")[0]}, belongs to: ${genres.join(
+  ", ",
+)}. It ${hasMovieAdaptation ? "has" : "does not have"} a movie adaptation.`;
+console.log(summary);
+
 // 19 剩余Rest/打散Spread操作符
 const [primaryGenre, secondaryGenre, ...restGenres] = genres;
 console.log(primaryGenre, secondaryGenre, restGenres);
