@@ -142,3 +142,14 @@ function getBooks() {
 function getBook(id) {
   return data.find((d) => d.id === id);
 }
+
+// 18 分解对象分解数组
+const books = getBooks();
+getBook(2);
+
+const { title, author, pages, publicationDate, genres, hasMovieAdaptation } =
+  getBook(2);
+console.log(title, author, genres);
+
+const [primaryGenre, secondaryGenre, ...restGenres] = genres;
+console.log(primaryGenre, secondaryGenre, restGenres);
