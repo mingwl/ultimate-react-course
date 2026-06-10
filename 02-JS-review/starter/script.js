@@ -172,3 +172,7 @@ const newBook = {
   pages: 300,
 };
 console.log(newBook);
+
+// 21 三元运算符
+const isLongBook = pages > 1000 ? "Yes" : "No";
+console.log(`Is ${title} a long book? ${isLongBook}`);
