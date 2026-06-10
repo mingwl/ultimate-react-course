@@ -148,7 +148,7 @@ const books = getBooks();
 getBook(2);
 
 const { title, author, pages, publicationDate, genres, hasMovieAdaptation } =
-  getBook(2);
+  getBook(1);
 console.log(title, author, genres);
 
 // 22 箭头函数
@@ -196,3 +196,57 @@ console.log(newBook);
 // 21 三元运算符
 const isLongBook = pages > 1000 ? "Yes" : "No";
 console.log(`Is ${title} a long book? ${isLongBook}`);
+
+// 23短路逻辑运算符
+const bookTitle = getBook(1)?.title || "Unknown Title";
+console.log(bookTitle);
+
+console.log(true && "This will be printed");
+console.log(false && "This will NOT be printed");
+console.log(hasMovieAdaptation && `${title} has a movie adaptation.`);
+
+// falsy: false, 0, "", null, undefined, NaN
+
+// 返回第一个 falsy 的值，如果没有 falsy 的值，则返回最后一个值
+console.log("jonas" && "hello world");
+console.log(false && "hello world");
+console.log(0 && "hello world");
+console.log("" && "hello world");
+console.log(null && "hello world");
+console.log(undefined && "hello world");
+console.log(NaN && " hello world");
+
+// 返回第一个 truthy 的值，如果没有 truthy 的值，则返回最后一个值
+console.log(true || "This will NOT be printed");
+console.log(false || "This will be printed");
+console.log(hasMovieAdaptation || `${title} does not have a movie adaptation.`);
+
+console.log(getBook(1).translations.spanish || "No Spanish translation");
+console.log(getBook(2).translations.spanish || "No Spanish translation");
+
+console.log(getBook(0)?.reviews.librarything?.rating || "No rating");
+console.log(getBook(1).reviews.librarything?.rating || "No rating");
+console.log(getBook(2).reviews.librarything?.rating || "No rating");
+
+console.log(getBook(0)?.reviews?.librarything?.review ?? "No rating");
+console.log(getBook(1)?.reviews?.librarything?.review ?? "No rating");
+console.log(getBook(2)?.reviews?.librarything?.rating ?? "No rating");
+
+console.log(
+  getBook(0)?.reviews?.librarything?.reviewCount ?? "No review count",
+);
+console.log(
+  getBook(1)?.reviews?.librarything?.reviewCount ?? "No review count",
+);
+console.log(
+  getBook(2)?.reviews?.librarything?.reviewCount ?? "No review count",
+);
+
+console.log(getBook(1).reviews.librarything.reviewCount);
+console.log(getBook(1).reviews.librarything.reviewCount);
+console.log(
+  getBook(1)?.reviews?.librarything?.reviewCount || "No1 review count",
+);
+console.log(
+  getBook(1)?.reviews?.librarything?.reviewCount ?? "No2 review count",
+);
