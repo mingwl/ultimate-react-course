@@ -151,8 +151,28 @@ const { title, author, pages, publicationDate, genres, hasMovieAdaptation } =
   getBook(2);
 console.log(title, author, genres);
 
+// 22 箭头函数
+const getShortSummary = (book) => {
+  const { title, author, publicationDate } = book;
+  return `${title} was written by ${author} and published in ${publicationDate.split("-")[0]}.`;
+};
+console.log(getShortSummary(getBook(1)));
+
+function getYear(date) {
+  return date.split("-")[0];
+}
+console.log(getYear(getBook(1).publicationDate));
+
+const getYearExpr = function (date) {
+  return date.split("-")[0];
+};
+console.log(getYearExpr(getBook(1).publicationDate));
+
+const getYearArrow = (date) => date.split("-")[0];
+console.log(getYearArrow(getBook(1).publicationDate));
+
 // 20 模板字符串
-const summary = `${title} a ${pages} book written by ${author} and on ${publicationDate.split("-")[0]}, belongs to: ${genres.join(
+const summary = `${title} a ${pages} book written by ${author} and on ${getYearArrow(publicationDate)}, belongs to: ${genres.join(
   ", ",
 )}. It ${hasMovieAdaptation ? "has" : "does not have"} a movie adaptation.`;
 console.log(summary);
