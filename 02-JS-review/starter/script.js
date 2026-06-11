@@ -164,6 +164,19 @@ const essentialData = books.map((book) => ({
 }));
 console.log(essentialData[0]);
 
+// 26 数组方法filter
+const longBooksWithMovie = books
+  .filter((book) => book.pages >= 500)
+  .filter((book) => book.hasMovieAdaptation)
+  .map((book) => book.title);
+console.log(longBooksWithMovie.length);
+console.log(longBooksWithMovie);
+
+const adventureBooks = books
+  .filter((book) => book.genres.includes("adventure"))
+  .map((book) => book.title);
+console.log(adventureBooks);
+
 /*
 // 18 分解对象分解数组
 const books = getBooks();
