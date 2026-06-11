@@ -143,6 +143,28 @@ function getBook(id) {
   return data.find((d) => d.id === id);
 }
 
+// 25 数组方法map
+const books = getBooks();
+const x = [1, 2, 3, 4, 5].map((num) => num * 2);
+console.log(x);
+
+const booksTitles = books.map((book) => book.title);
+console.log(booksTitles);
+
+const getTotalReviewCount = (book) => {
+  const goodreadsCount = book.reviews?.goodreads?.reviewsCount ?? 0;
+  const librarythingCount = book.reviews.librarything?.reviewsCount ?? 0;
+  return goodreadsCount + librarythingCount;
+};
+
+const essentialData = books.map((book) => ({
+  title: book.title,
+  author: book.author,
+  reviewsCount: getTotalReviewCount(book),
+}));
+console.log(essentialData[0]);
+
+/*
 // 18 分解对象分解数组
 const books = getBooks();
 getBook(2);
@@ -265,3 +287,4 @@ console.log(getTotalReviewCount(getBook(2)));
 console.log(getTotalReviewCount(getBook(3)));
 console.log(getTotalReviewCount(getBook(4)));
 console.log(getTotalReviewCount(getBook(5)));
+*/
