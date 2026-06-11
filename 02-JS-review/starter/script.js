@@ -177,6 +177,14 @@ const adventureBooks = books
   .map((book) => book.title);
 console.log(adventureBooks);
 
+// 27 数组方法reduce
+const pagesAllBooks = books.reduce((num, book) => {
+  const result = num + book.pages;
+  console.log(`${num} + ${book.pages} = ${result}`);
+  return result;
+}, 0);
+console.log(pagesAllBooks);
+
 /*
 // 18 分解对象分解数组
 const books = getBooks();
