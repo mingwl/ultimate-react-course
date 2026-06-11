@@ -202,6 +202,29 @@ const sortedByPages = books
   .map((b) => b.pages);
 console.log(sortedByPages);
 
+// 29 Immutable Arrays
+// 29.1. add book object to array
+const newBook = {
+  id: 6,
+  title: "Happy Potter and the chamber of secrets",
+  author: "J. K. Rowling",
+};
+const booksAfterAdd = [...books, newBook];
+console.log(books);
+console.log(booksAfterAdd);
+
+// 2. delete book object from array
+const booksAfterDelete = booksAfterAdd.filter((book) => book.id !== 3);
+console.log(booksAfterDelete);
+
+// 3.update book object in the array
+const booksAfterUpdate = booksAfterDelete.map((book) =>
+  book.id === 1
+    ? { ...book, title: "哈哈哈", publicationDate: "2026-06-11" }
+    : book,
+);
+console.log(booksAfterUpdate);
+
 /*
 // 18 分解对象分解数组
 const books = getBooks();
