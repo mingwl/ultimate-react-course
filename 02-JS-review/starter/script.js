@@ -250,3 +250,18 @@ console.log(
 console.log(
   getBook(1)?.reviews?.librarything?.reviewCount ?? "No2 review count",
 );
+
+// 24 Optional chaining和Nullish coalescing空值合并运算符
+console.log(getBook(0)?.reviews?.librarything?.rating || "No rating");
+console.log(getBook(0)?.reviews?.librarything?.rating ?? "No rating");
+
+const getTotalReviewCount = (book) => {
+  const goodreadsCount = book.reviews?.goodreads?.reviewsCount ?? 0;
+  const librarythingCount = book.reviews.librarything?.reviewsCount ?? 0;
+  return goodreadsCount + librarythingCount;
+};
+console.log(getTotalReviewCount(getBook(1)));
+console.log(getTotalReviewCount(getBook(2)));
+console.log(getTotalReviewCount(getBook(3)));
+console.log(getTotalReviewCount(getBook(4)));
+console.log(getTotalReviewCount(getBook(5)));
