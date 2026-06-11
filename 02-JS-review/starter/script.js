@@ -164,7 +164,7 @@ const essentialData = books.map((book) => ({
 }));
 console.log(essentialData[0]);
 
-// 26 数组方法filter
+// 27 数组方法filter
 const longBooksWithMovie = books
   .filter((book) => book.pages >= 500)
   .filter((book) => book.hasMovieAdaptation)
@@ -184,6 +184,23 @@ const pagesAllBooks = books.reduce((num, book) => {
   return result;
 }, 0);
 console.log(pagesAllBooks);
+
+// 28 数组方法sort
+const y = [0, 8, 5, 9, 6];
+const asc = (a, b) => a - b;
+const desc = (a, b) => b - a;
+const ascy = y.slice().sort(asc);
+const descy = y.slice().sort(desc);
+console.log(y);
+console.log(ascy);
+console.log(descy);
+
+const sortedByPages = books
+  .slice()
+  .sort((b1, b2) => b1.pages - b2.pages)
+  .map((book) => ({ title: book.title, pages: book.pages }))
+  .map((b) => b.pages);
+console.log(sortedByPages);
 
 /*
 // 18 分解对象分解数组
