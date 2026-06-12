@@ -143,6 +143,7 @@ function getBook(id) {
   return data.find((d) => d.id === id);
 }
 
+/*
 // 25 数组方法map
 const books = getBooks();
 const x = [1, 2, 3, 4, 5].map((num) => num * 2);
@@ -349,3 +350,11 @@ console.log(getTotalReviewCount(getBook(3)));
 console.log(getTotalReviewCount(getBook(4)));
 console.log(getTotalReviewCount(getBook(5)));
 */
+
+// 30. 异步JS:Promises
+// console.log(fetch("https://jsonplaceholder.typicode.com/todos/1"));
+fetch("https://jsonplaceholder.typicode.com/todos/1")
+  .then((response) => response.json())
+  .then((json) => console.log(json));
+
+console.log("jonas");
