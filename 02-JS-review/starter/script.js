@@ -353,8 +353,23 @@ console.log(getTotalReviewCount(getBook(5)));
 
 // 30. 异步JS:Promises
 // console.log(fetch("https://jsonplaceholder.typicode.com/todos/1"));
+/*
 fetch("https://jsonplaceholder.typicode.com/todos/1")
   .then((response) => response.json())
   .then((json) => console.log(json));
 
 console.log("jonas");
+*/
+
+// 31. 异步JS:Async/Await
+async function getTodo(id) {
+  const response = await fetch(
+    `https://jsonplaceholder.typicode.com/todos/${id}`,
+  );
+  const json = await response.json();
+  console.log(json);
+  return json;
+}
+const res = getTodo(2);
+console.log(res);
+console.log("jonas2");
